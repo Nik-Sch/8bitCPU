@@ -4,6 +4,8 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { argv, exit } from 'process';
 
+const ROM_ADDRESS_LENGTH = 13;
+
 interface IInstruction {
   regex: RegExp;
   result: (match: RegExpMatchArray) => { instr: string, imm?: string | false }
@@ -170,7 +172,7 @@ let fileContent = coeFile
 
 #include <Arduino.h>
 
-const uint16_t length = 512;
+const uint16_t length = ${Math.pow(2, ROM_ADDRESS_LENGTH)};
 const uint8_t data[] PROGMEM = {\n`;
 
 let lineCount = 0;
@@ -224,7 +226,7 @@ for (const origLine of code) {
       }
       bytes[instrCount] = result.instr;
       if (result.imm) {
-        bytes[instrCount + 256] = result.imm;
+        bytes[instrCount + Math.pow(2, ROM_ADDRESS_LENGTH - 1)] = result.imm;
         console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()} (imm: 0x${parseInt(result.imm, 2).toString(16).padStart(2, '0')})`);
       } else {
         console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()}`);
@@ -239,12 +241,12 @@ for (const origLine of code) {
   }
 }
 if (coeFile) {
-  for (let i = 0; i < 512; i++) {
+  for (let i = 0; i < Math.pow(2, ROM_ADDRESS_LENGTH); i++) {
     fileContent += bytes[i] ? `${bytes[i]}\n` : '11111111\n';
   }
   fileContent += ';';
 } else {
-  for (let i = 0; i < 512; i++) {
+  for (let i = 0; i < Math.pow(2, ROM_ADDRESS_LENGTH); i++) {
     fileContent += bytes[i] ? `0x${parseInt(bytes[i], 2).toString(16).padStart(2, '0')},\n` : '0xff,\n';
   }
   fileContent += '};\n#endif';

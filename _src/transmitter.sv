@@ -1,9 +1,9 @@
 module transmitter(
-  input logic[7:0] a,
-  output logic[7:0] b,
+  input logic[15:0] a,
+  output logic[15:0] b,
   input logic noe
 );
 
-assign b = noe ? 8'bzzzz_zzzz : a;
+assign b = noe ? 16'hzzzz : a;
 
 endmodule

@@ -6,7 +6,6 @@ module control(
   input wire i_aluFlagNZ,
 
   input wire[7:0] i_instruction,
-  output wire[7:0] o_immediate,
 
   output wire o_ctrlHlt,
 
@@ -59,12 +58,6 @@ assign o_ctrlImmediate = (~r_step[0] | r_step[1]) | r_step[2];
 assign o_ctrlIncrPC = r_stepEqual1;
 assign o_ctrlHlt = & r_instruction;
 
-// assign o_immediate = 8'hzz;
-transmitter inst_tx(
-  .a({5'b0, r_instruction[5-:3]}),
-  .b(o_immediate),
-  .noe(1)
-);
 
 always @(negedge i_clk) begin
   r_step <= r_step + 1;

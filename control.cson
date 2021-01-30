@@ -417,4 +417,34 @@ instructions: [
       }
     ]
   }
+
+
+  {
+    op: '11111001' # test push
+    signals: [
+      { # fill b port of alu
+      }
+      { # sub immediate
+        ramOE: 1
+        ramSelect: 1
+        
+        aluSel: 0 # r0
+        aluWr: 1
+      }
+      {
+        regBusSel: 0
+        regNBusEn: 0
+        ramAddressEn: 1
+      }
+      {
+        regBusSel: 1
+        regNBusEn: 0
+        ramWriteEn: 1
+      }
+      {
+        aluNOE: 0
+        regWr0: 1
+      }
+    ]
+  }
 ]

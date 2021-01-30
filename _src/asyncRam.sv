@@ -1,12 +1,12 @@
 module asyncRam(
-  input wire[7:0] i_address,
+  input wire[15:0] i_address,
   input wire i_writeNEn,
-  input wire[7:0] i_writeData,
-  output wire[7:0] o_readData,
+  input wire[15:0] i_writeData,
+  output wire[15:0] o_readData,
   input wire i_noe
 );
-logic [7:0] s_ram [255:0];
-logic [7:0] s_readDataRam;
+logic [15:0] s_ram [65535:0];
+logic [15:0] s_readDataRam;
 
 always @* begin
   if (!i_writeNEn) begin

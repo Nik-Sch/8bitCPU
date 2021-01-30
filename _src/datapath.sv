@@ -44,35 +44,33 @@ wire s_ctrlPCNOe;
 wire s_ctrlWrOut;
 wire s_ctrlIncrPC;
 
-wire[7:0] s_instruction;
-wire[7:0] s_immediate;
+wire[15:0] s_instruction;
 
-wire[7:0] s_aluA;
-wire[7:0] s_aluB;
-wire[7:0] s_aluY;
+wire[15:0] s_aluA;
+wire[15:0] s_aluB;
+wire[15:0] s_aluY;
 
-wire[7:0] s_regData;
-wire[7:0] s_regBus;
-wire[7:0] s_regAlu;
+wire[15:0] s_regData;
+wire[15:0] s_regBus;
+wire[15:0] s_regAlu;
 
-wire[7:0] s_ramAddress;
-wire[7:0] s_ramWriteData;
-wire[7:0] s_ramReadData;
+wire[15:0] s_ramAddress;
+wire[15:0] s_ramWriteData;
+wire[15:0] s_ramReadData;
 
-wire[7:0] s_pcAddr;
-wire[7:0] s_pcData;
+wire[15:0] s_pcAddr;
+wire[15:0] s_pcData;
 
-wire[7:0] s_iData;
-wire[7:0] s_oData;
+wire[15:0] s_iData;
+wire[15:0] s_oData;
 
-wire[7:0] s_BUS;
+wire[15:0] s_BUS;
 
 assign s_BUS = s_aluY;
 assign s_BUS = s_iData;
 assign s_BUS = s_regBus;
 assign s_BUS = s_ramReadData;
 assign s_BUS = s_pcAddr;
-assign s_BUS = s_immediate;
 assign s_aluB = s_BUS;
 assign s_regData = s_BUS;
 assign s_ramAddress = s_BUS;
@@ -90,8 +88,7 @@ control inst_control(
   .i_aluFlagN(s_aluFlagN),
   .i_aluFlagNZ(s_aluFlagNZ),
 
-  .i_instruction(s_instruction),
-  .o_immediate(s_immediate),
+  .i_instruction(s_instruction[7:0]),
 
   .o_ctrlHlt(s_ctrlHlt),
   .o_ctrlAluNOE(s_ctrlAluNOE),
