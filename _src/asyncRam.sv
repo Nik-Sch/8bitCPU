@@ -5,7 +5,8 @@ module asyncRam(
   output wire[15:0] o_readData,
   input wire i_noe
 );
-logic [15:0] s_ram [65535:0];
+// logic [15:0] s_ram [65535:0];
+logic [15:0] s_ram [255:0]; // rtl analysis doesn't like it large
 logic [15:0] s_readDataRam;
 
 always @* begin

@@ -50,8 +50,6 @@ wire[15:0] s_aluA;
 wire[15:0] s_aluB;
 wire[15:0] s_aluY;
 
-wire[15:0] s_regData;
-wire[15:0] s_regBus;
 wire[15:0] s_regAlu;
 
 wire[15:0] s_ramAddress;
@@ -68,11 +66,9 @@ wire[15:0] s_BUS;
 
 assign s_BUS = s_aluY;
 assign s_BUS = s_iData;
-assign s_BUS = s_regBus;
 assign s_BUS = s_ramReadData;
 assign s_BUS = s_pcAddr;
 assign s_aluB = s_BUS;
-assign s_regData = s_BUS;
 assign s_ramAddress = s_BUS;
 assign s_ramWriteData = s_BUS;
 assign s_pcData = s_BUS;
@@ -133,16 +129,12 @@ regset inst_regs(
   .i_clk(s_clk),
   .i_reset(i_reset),
 
-  .i_d(s_regData),
-  .i_write0(s_ctrlRegWr0),
-  .i_write1(s_ctrlRegWr1),
+  .io_bus(s_BUS),
+  .i_writeSel(s_ctrlRegWrSel),
+  .i_we(s_ctrlRegWE),
 
-  .i_busSel(s_ctrlRegBusSel),
-  .i_nBusEn(s_ctrlRegNBusEn),
-  .o_bus(s_regBus),
-
-  .i_aluSel(s_ctrlAluSel),
-  .o_alu(s_regAlu)
+  .i_outSel(s_ctrlRegOutSel),
+  .i_noe(s_ctrlRegNOE)
 );
 
 io inst_io(

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="7985250fs"></ZoomStartTime>
-      <ZoomEndTime time="9038251fs"></ZoomEndTime>
-      <Cursor1Time time="45000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="211201fs"></ZoomEndTime>
+      <Cursor1Time time="5000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="272"></NameColumnWidth>
-      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="14" />
    <wvobject type="logic" fp_name="/tb_datapath/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -30,13 +30,13 @@
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_pc/r_addr">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">r_addr[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_addr[7:0]</obj_property>
+      <obj_property name="ElementShortName">r_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_addr[15:0]</obj_property>
       <obj_property name="label">r_pc[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/s_BUS">
-      <obj_property name="ElementShortName">s_BUS[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_BUS[7:0]</obj_property>
+      <obj_property name="ElementShortName">s_BUS[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_BUS[15:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="divider50" type="divider">
@@ -45,13 +45,13 @@
       <obj_property name="BkColor">#808080</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_regs/r_0">
-      <obj_property name="ElementShortName">r_0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_0[7:0]</obj_property>
+      <obj_property name="ElementShortName">r_0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_0[15:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_regs/r_1">
-      <obj_property name="ElementShortName">r_1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_1[7:0]</obj_property>
+      <obj_property name="ElementShortName">r_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_1[15:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group3">
@@ -139,31 +139,55 @@
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_ram/inst_ram/s_ram[0]">
-         <obj_property name="ElementShortName">[0][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+         <obj_property name="ElementShortName">[0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][15:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_ram/inst_ram/s_ram[1]">
-         <obj_property name="ElementShortName">[1][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][7:0]</obj_property>
+         <obj_property name="ElementShortName">[1][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][15:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_ram/inst_ram/s_ram[2]">
-         <obj_property name="ElementShortName">[2][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][7:0]</obj_property>
+         <obj_property name="ElementShortName">[2][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group41">
+      <obj_property name="label">alu</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/i_a">
+         <obj_property name="ElementShortName">i_a[15:0]</obj_property>
+         <obj_property name="ObjectShortName">i_a[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/i_b">
+         <obj_property name="ElementShortName">i_b[15:0]</obj_property>
+         <obj_property name="ObjectShortName">i_b[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/s_y">
+         <obj_property name="ElementShortName">s_y[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_y[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/r_y">
+         <obj_property name="ElementShortName">r_y[15:0]</obj_property>
+         <obj_property name="ObjectShortName">r_y[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/o_y">
+         <obj_property name="ElementShortName">o_y[15:0]</obj_property>
+         <obj_property name="ObjectShortName">o_y[15:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_ram/r_address">
-      <obj_property name="ElementShortName">r_address[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_address[7:0]</obj_property>
+      <obj_property name="ElementShortName">r_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_address[15:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_ram/s_readDataInstr">
       <obj_property name="ElementShortName">s_readDataInstr[7:0]</obj_property>
       <obj_property name="ObjectShortName">s_readDataInstr[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/r_output">
-      <obj_property name="ElementShortName">r_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_output[7:0]</obj_property>
+      <obj_property name="ElementShortName">r_output[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_output[15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
